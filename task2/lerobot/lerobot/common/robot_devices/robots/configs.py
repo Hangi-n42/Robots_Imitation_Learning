@@ -443,7 +443,7 @@ class So101RobotConfig(ManipulatorRobotConfig):
     leader_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": FeetechMotorsBusConfig(
-                port="/dev/tty.usbmodem58760431091",
+                port="/dev/serial/by-id/usb-1a86_USB_Single_Serial_5A7A054767-if00",
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "sts3215"],
@@ -460,7 +460,7 @@ class So101RobotConfig(ManipulatorRobotConfig):
     follower_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": FeetechMotorsBusConfig(
-                port="/dev/tty.usbmodem585A0076891",
+                port="/dev/serial/by-id/usb-1a86_USB_Single_Serial_5A7A056628-if00",
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "sts3215"],
@@ -476,14 +476,14 @@ class So101RobotConfig(ManipulatorRobotConfig):
 
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "laptop": OpenCVCameraConfig(
-                camera_index=0,
+            "handeye": OpenCVCameraConfig(
+                camera_index="/dev/v4l/by-id/usb-DSJ-250318-J_DSJ-2062-309-video-index0",
                 fps=30,
                 width=640,
                 height=480,
             ),
-            "phone": OpenCVCameraConfig(
-                camera_index=1,
+            "fixed": OpenCVCameraConfig(
+                camera_index="/dev/v4l/by-id/usb-GENERAL_GENERAL_WEBCAM_JH0319_20210712_v102-video-index0",
                 fps=30,
                 width=640,
                 height=480,
