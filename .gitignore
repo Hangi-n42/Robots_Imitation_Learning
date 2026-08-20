@@ -209,6 +209,25 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Local training and evaluation outputs
+**/runs/
+**/outputs/
+task1/ManiSkill/demos/
+task1/ManiSkill/PickCube-v1/motionplanning/*.state.*.h5
+task1/ManiSkill/PickCube-v1/motionplanning/*.state.*.json
+
+# Machine-specific robot state and accidental command files
+task2/lerobot/.cache/calibration/so101/
+task2/lerobot/calibration_backup/
+task2/lerobot/--*
+
+# Local backup files
+*.bak
+*.bak_*
+*_backup
+*.port_backup
+*.camera_backup
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
