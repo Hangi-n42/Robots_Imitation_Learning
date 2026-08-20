@@ -148,12 +148,12 @@ def solve(env: BaseEnv, debug=False, vis=False):
             joint_acc_limits=0.5,
             joint_vel_limits=0.5,
         )
-    viewer = env.render_human()
+    viewer = env.unwrapped.render_human()
 
     last_checkpoint_state = None
     gripper_open = True
     def select_panda_hand():
-        viewer.select_entity(sapien_utils.get_obj_by_name(env.agent.robot.links, "panda_hand")._objs[0].entity)
+        viewer.select_entity(sapien_utils.get_obj_by_name(env.unwrapped.agent.robot.links, "panda_hand")._objs[0].entity)
     select_panda_hand()
     for plugin in viewer.plugins:
         if isinstance(plugin, sapien.utils.viewer.viewer.TransformWindow):
@@ -165,7 +165,7 @@ def solve(env: BaseEnv, debug=False, vis=False):
         # print(transform_window.ghost_objects, transform_window._gizmo_pose)
         # planner.grasp_pose_visual.set_pose(transform_window._gizmo_pose)
 
-        env.render_human()
+        env.unwrapped.render_human()
         execute_current_pose = False
         if viewer.window.key_press("h"):
             print("""Available commands:
